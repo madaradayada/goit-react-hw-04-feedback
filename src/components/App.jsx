@@ -42,18 +42,18 @@ export function App() {
         <FeedbackOptions
           options={Object.keys({ good, neutral, bad })}
           onLeaveFeedback={onLeaveFeedback}
-        ></FeedbackOptions>
+        />
       </Section>
 
       <Section title="Statistics">
-        {totalRates > 0 ? (
+        {!!totalRates ? (
           <Statistics
             good={good}
             neutral={neutral}
             bad={bad}
             total={countTotalFeedback()}
             positivePercentage={countPositiveFeedbackPercentage()}
-          ></Statistics>
+          />
         ) : (
           <Notification message="There is no feedback" />
         )}
